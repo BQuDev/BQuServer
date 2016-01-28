@@ -15,6 +15,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/students/seed', function () {
+    $faker = Faker\Factory::create();
+    DB::table('students')->truncate();
+    for($i=1;$i<25;$i++){
+        $student = new \App\Student();
+        $student->name  = $faker->name;
+        $student->address  = $faker->address;
+        $student->save();
+    }
+});
+
+Route::get('/students', function () {
+    return \App\Student::all();
+});
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
