@@ -32,6 +32,13 @@ Route::get('/students', function () {
 });
 
 
+Route::post('/lec', function () {
+    $lec_id = 1;
+    return json_encode($lec_id);
+});
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
