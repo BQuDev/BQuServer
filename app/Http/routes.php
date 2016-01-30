@@ -33,8 +33,13 @@ Route::get('/students', function () {
 
 
 Route::post('/lec', function () {
+    $callback = "callback";
+    if(\Illuminate\Support\Facades\Input::get('callback'))
+        $callback = trim(\Illuminate\Support\Facades\Input::get('callback'));
     $lec_id = 1;
-    return json_encode($lec_id);
+    //return json_encode($lec_id);
+
+    return $callback . '(' . json_encode($lec_id) . ')';
 });
 
 
